@@ -1,0 +1,30 @@
+site_name: The Digital Humanities ToolKit
+
+nav:
+  - Installation: installation.md
+  - Getting Started: getting_started.md
+  - Guides:
+    - User Guide: user_guide.md
+    - Developer Guide: dev_guide.md
+  - About: about.md
+  - FAQ: faq.md
+  - API:
+    - API/DHTK.md
+
+theme:
+  #name: gitbook
+  name: material
+  favicon: img/favicon.ico
+  logo: img/favicon.ico
+
+markdown_extensions:
+  - footnotes
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          rendering:
+            show_root_heading: yes

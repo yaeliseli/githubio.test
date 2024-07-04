@@ -1,0 +1,16 @@
+.idea
+.idea/**
+**.DS_Store
+__pycache__
+__pycache__/**
+*.py[cod]
+venv/
+venv/**
+.pytest_cache
+.pytest_cache/**
+Pipfile
+Pipfile.lock
+build
+build/**
+env/
+env/**
