@@ -45,4 +45,8 @@ jobs:
           restore-keys: |
             mkdocs-material-
       - run: pip install mkdocs mkdocs-material "mkdocstrings[python]"
-      - run: mkdocs gh-deploy --force
+      - name: Deploy with MkDocs
+        run: |
+          mkdocs gh-deploy --force
+          env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
