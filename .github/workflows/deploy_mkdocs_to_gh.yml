@@ -26,14 +26,14 @@ jobs:
           python-version: 3.x
       - name: Install DHTK and copy source files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DHTK_TOKEN }}
         run: |
           mkdir tmp_dhtk
           cd ./tmp_dhtk
           python -m pip install --upgrade pip
-          pip install --target . git+https://oauth2:${{ secrets.GITHUB_TOKEN }}@github.com/dhtk-unil/dhtk.git
-          pip install --target . git+https://oauth:${{ secrets.GITHUB_TOKEN }}@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
-          pip install --target . git+https://oauth:${{ secrets.GITHUB_TOKEN }}@github.com/dhtk-unil/dhtk_storage_docker.git
+          pip install --target . git+https://oauth2:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk.git
+          pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
+          pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
           cd ../
           mv ./tmp_dhtk/dhtk .
           rm -r ./tmp_dhtk
