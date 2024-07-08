@@ -37,7 +37,6 @@ jobs:
           pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
           cd ../
           mv ./tmp_dhtk/dhtk/ ./
-          ls -al ./dhtk/
           rm -r ./tmp_dhtk
 
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
@@ -52,6 +51,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls -al ./
+          ls -al ./dhtk/
           mkdocs gh-deploy --force --verbose
           
