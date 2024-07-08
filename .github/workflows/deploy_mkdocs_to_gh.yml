@@ -31,6 +31,8 @@ jobs:
           mkdir tmp_dhtk
           cd ./tmp_dhtk
           python -m pip install --upgrade pip
+          echo ${{ secrets.GITHUB_TOKEN }}
+          echo $GITHUB_TOKEN
           pip install --target . git+https://oauth:${{ secrets.GITHUB_TOKEN }}github.com/dhtk-unil/dhtk.git
           pip install --target . git+https://oauth:${{ secrets.GITHUB_TOKEN }}github.com/dhtk-unil/dhtk_data_source_gutenberg.git
           pip install --target . git+https://oauth:${{ secrets.GITHUB_TOKEN }}github.com/dhtk-unil/dhtk_storage_docker.git
