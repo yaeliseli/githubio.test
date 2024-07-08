@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir tmp_dhtk
           cd ./tmp_dhtk
+          python -m pip install --upgrade pip
           pip install --target . git+https://github.com/dhtk-unil/dhtk.git
           pip install --target . git+https://github.com/dhtk-unil/dhtk_data_source_gutenberg.git
           pip install --target . git+https://github.com/dhtk-unil/dhtk_storage_docker.git
