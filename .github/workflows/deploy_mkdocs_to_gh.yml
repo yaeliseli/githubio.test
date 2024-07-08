@@ -25,6 +25,8 @@ jobs:
         with:
           python-version: 3.x
       - name: Install DHTK and copy source files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           mkdir tmp_dhtk
           cd ./tmp_dhtk
