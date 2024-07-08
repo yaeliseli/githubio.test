@@ -51,6 +51,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          ls -al ./dhtk/
+          ls -al ./dhtk/data_sources
           mkdocs gh-deploy --force --verbose
           
