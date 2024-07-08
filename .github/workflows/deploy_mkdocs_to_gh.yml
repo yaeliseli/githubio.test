@@ -31,11 +31,12 @@ jobs:
           mkdir tmp_dhtk
           cd ./tmp_dhtk
           python -m pip install --upgrade pip
-          pip install --target . git+https://oauth2:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk.git
+          pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk.git
           pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
           pip install --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
           cd ../
-          mv ./tmp_dhtk/dhtk .
+          ls -al
+          mv ./tmp_dhtk/dhtk
           rm -r ./tmp_dhtk
 
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
