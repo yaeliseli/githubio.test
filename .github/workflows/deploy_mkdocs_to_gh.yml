@@ -24,6 +24,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: 3.x
+      - name: Install DHTK and copy source files
+        run: |
+          mkdir tmp_dhtk
+          cd ./tmp_dhtk
+          pip install --target . git+https://github.com/dhtk-unil/dhtk.git
+          pip install --target . git+https://github.com/dhtk-unil/dhtk_data_source_gutenberg.git
+          pip install --target . git+https://github.com/dhtk-unil/dhtk_storage_docker.git
+          cd ../
+          mv ./tmp_dhtk/dhtk .
+          rm -r ./tmp_dhtk
+
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
         with:
