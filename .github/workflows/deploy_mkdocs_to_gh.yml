@@ -27,7 +27,7 @@ jobs:
       - name: Install DHTK and copy source files
         env:
           GITHUB_TOKEN: ${{ secrets.DHTK_TOKEN }}
-        run: |
+        run: | # mandatory to create a venv,because package management is different from for a local install
           python -m venv venv
           source venv/bin/activate
           python -m pip install --upgrade pip
