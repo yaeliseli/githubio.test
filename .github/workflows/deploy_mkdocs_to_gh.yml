@@ -28,17 +28,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DHTK_TOKEN }}
         run: |
-          mkdir tmp_dhtk
-          cd ./tmp_dhtk
+          python -m venv venv
+          source venv/bin/activate
           python -m pip install --upgrade pip
-          pip install --upgrade --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk.git
-          pip install --upgrade --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
-          pip install --upgrade --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_auchinleck.git
-          pip install --upgrade --target . git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
-          cd ../
-          mv ./tmp_dhtk/dhtk/ ./
-          rm -r ./tmp_dhtk
-
+          pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk.git
+          pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
+          pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_auchinleck.git
+          pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
+          mv ./venv/lib/python3.10/site-packages/dhtk ./
+          rm -r ./venv
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
         with:
