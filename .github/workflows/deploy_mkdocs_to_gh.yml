@@ -23,7 +23,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: 3.x
+          python-version: 3.10
       - name: Install DHTK and copy source files
         env:
           GITHUB_TOKEN: ${{ secrets.DHTK_TOKEN }}
@@ -35,7 +35,9 @@ jobs:
           pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_gutenberg.git
           pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_data_source_auchinleck.git
           pip install git+https://oauth:$GITHUB_TOKEN@github.com/dhtk-unil/dhtk_storage_docker.git
+          ls -al ./venv/lib/
           mv ./venv/lib/python3.10/site-packages/dhtk ./
+          deactivate
           rm -r ./venv
       - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
       - uses: actions/cache@v4
