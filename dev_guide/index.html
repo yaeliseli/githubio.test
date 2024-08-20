@@ -1,0 +1,873 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../user_guide/">
+      
+      
+        <link rel="next" href="../about/">
+      
+      
+      <link rel="icon" href="../img/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.32">
+    
+    
+      
+        <title>Developer Guide - The Digital Humanities ToolKit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3cba04c6.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#developers-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="The Digital Humanities ToolKit" class="md-header__button md-logo" aria-label="The Digital Humanities ToolKit" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            The Digital Humanities ToolKit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Developer Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="The Digital Humanities ToolKit" class="md-nav__button md-logo" aria-label="The Digital Humanities ToolKit" data-md-component="logo">
+      
+  <img src="../img/favicon.ico" alt="logo">
+
+    </a>
+    The Digital Humanities ToolKit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Guides
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Guides
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../user_guide/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    User Guide
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Developer Guide
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      New data sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New data sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrating-new-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating new modules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrating new modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-and-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback and issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minor-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minor changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minor changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdf-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDF Dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    API
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/DHTK/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DHTK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new-data-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      New data sources
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="New data sources">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#integrating-new-modules" class="md-nav__link">
+    <span class="md-ellipsis">
+      Integrating new modules
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrating new modules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Procedure
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#feedback-and-issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      Feedback and issues
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#minor-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Minor changes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minor changes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rdf-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      RDF Dataset
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="developers-guide">Developer's Guide</h1>
+<p>DHTK is an open-source team effort. Contributions are essential to our
+survival and growth. We are thankful for any contribution and are happy
+to welcome you to the DHTK community!</p>
+<p>You can contribute to DHTK in many ways:
+-   Contribute to the development of new extensions
+-   Sending us feedback with suggestions or let us know of any issue you
+    run into while using DHTK.
+-   Add or modify minor functionalities to DHTK</p>
+<h2 id="new-data-sources">New data sources</h2>
+<p>If you would like to integrate a new dataset to DHTK, please write to
+<a href="https://www.unil.ch/sli/davidepicca">Davide Picca</a> to let us know!</p>
+<p>DHTK modular structure is thought out to simplify integrating new
+modules, features and datasets. DHTK is technically divided into three parts as
+described in the <a href="../user_guide/">documentation</a> page. The three parts are
+organised in separate directories (core, data sources, storage) for
+easier identification and navigation during development. This guarantees
+that the new data sources functions as a self-contained module, independent
+of the core DHTK modules.</p>
+<p><strong>Set up DHTK</strong></p>
+<ol>
+<li>Please visit our <a href="https://github.com/dhtk-unil/dhtk">GitHub page</a> to find
+    detailed information on how to contribute.</li>
+<li>Add an issue to the repository to let us know what you will be
+    working on and request the access<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</li>
+<li>Clone the DHTK repository and create your own branch.</li>
+</ol>
+<p><strong>Develop module</strong></p>
+<ol>
+<li>Develop you module independently.</li>
+<li>Remember to re-use (import) functions and classes already available
+    on DHTK (<a href="#minor-changes">how to add/modify helpers</a>)</li>
+</ol>
+<p><strong>Integrate module</strong></p>
+<ol>
+<li>Creating a new folder under the extension directory with the new
+    module's name.</li>
+<li>If you're using a new curated dataset, make the RDF file available
+    (<a href="#rdf-dataset">see RDF Dataset</a>)</li>
+<li>Integrate your module (after testing) into DHTK's framework (<a href="#integrating-new-modules">see
+    Integrating new modules</a>)</li>
+<li>Submit your changes for review as a pull request.</li>
+</ol>
+<p>Your request will be discussed and reviewed and soon as possibly using
+the normal <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request">Github
+interface</a>.</p>
+<h3 id="integrating-new-modules">Integrating new modules</h3>
+<p>DHTK core module is responsible to locate and load any module within
+the data source directory. Due to the modular architecture of DHTK, these
+data sources can be easily developed as self-sufficient Python modules,
+which are integrated into the DHTK framework through their path
+<code>dhtk.data_sources.gutenberg</code> for example.</p>
+<p><em>Note</em>:</p>
+<p>All dhtk data sources should be named <code>dhtk.data_source.DATASOURCE_NAME</code> (i.e. <code>dhtk.data_source.gutenberg</code>) so
+that everyone can find them on the net.</p>
+<h4 id="procedure">Procedure</h4>
+<p>We provide <a href="https://gitlab.com/dhtk/dhtk_data_sources/examples">4 different data storages</a> already setup 
+and ready to use.
+- <code>dhtk_data_source_dummysql</code>: blueprint package to be used if you need SQL storage (MariaDB)
+- <code>dhtk_data_source_dummynosql</code>: blueprint package to be used if you need NoSQL storage (MongoDB)
+- <code>dhtk_data_source_dummytei</code>: blueprint package to be used if you need XML-TEI storage (BaseX)
+- <code>dhtk_data_source_dummytriplestore</code>: blueprint package to be used if you need RDF storage (Fuseki)</p>
+<p><strong>Creating a data source</strong></p>
+<p><img alt="variables" src="../img/init_file.png" /></p>
+<ol>
+<li>Clone one of the 4 bleuprint available</li>
+<li>Define <code>name</code>and <code>data_file</code> variables as shown in Figure <a href="#variables">1</a> </li>
+<li>Complete the Module class by defining at least the required
+    attributes and methods: <code>get_data_file</code> , <code>__init__</code> and <code>get</code></li>
+<li>Update the <code>README.md</code> and <code>setup.py</code> to make the module installable.</li>
+</ol>
+<p><strong>Data source integration into dhtk</strong></p>
+<p>The DHTK <code>AbstractDataSource</code> abstract class contains most of the required
+methods to prepare a module for use. The new <strong>Module class</strong> is
+essentially a wrapper around a DHTK data source, defining the attributes
+<strong>name</strong> and <strong>url</strong> (name of the data source and location of the RDF data
+file to use on with the local SPARQL endpoint), and the <strong>methods to
+query and save the results</strong>. Any additional method that improves the
+Module class can be freely included.</p>
+<p><strong><em>*Gutenberg example</em></strong>*</p>
+<p><strong>1. Create a module specific directory</strong>: The gutenberg subdirectory
+was created on the dhtk's extension directory. All the files from the
+previously tested independent module are moved to this folder.</p>
+<p><img alt="image" src="../img/gutenberg1.png" /></p>
+<p><strong>2. Add the class named Module to the __init__ file</strong></p>
+<p><strong>3.1. Defining attributes</strong></p>
+<p>The general attributes <em>name</em> and <em>url</em> can be defined withing the
+class' __init__ method:</p>
+<ul>
+<li><em>name</em> defines the the name of the module and should be the same as
+    the directory place under dhtk/extensions</li>
+<li><em>url</em> define the remote location of the dataset to be set up
+    locally.</li>
+</ul>
+<hr />
+<p><strong>note</strong></p>
+<p>More specific attributes are defined to better integrate the gutenberg
+ module: <em>_corpus</em> and <em>wrapper</em>. In this case, <em>_corpus</em> is used
+ store retrieved books while the <em>wrapper</em> attribute is used to
+ reference the GutenbergData "query" object</p>
+<hr />
+<p><strong>3.2. Defining .get and .save methods</strong></p>
+<p>Two methods are required to be defined: .get() and save().</p>
+<p>The <em>get(what, name, add)</em> provides functions as the main point for DHTK
+integration. This method takes three arguments, converts then into
+SPARQL queries using a conditional logic and calls the correct module
+functionalities to retrieve information.</p>
+<ul>
+<li><em>what</em>: a string value determining what is being searched for
+    (<em>e.g.</em> books, authors). This value is evaluated by a conditional
+    if-then-else logic, wrapping around the main module query calls with
+    a user-friendly and unified framework.</li>
+<li><em>name</em>: a string value identifying of what is being searched (<em>e.g.</em>
+    book name, author name). This value is used to narrow down the
+    general query defined by <em>what</em>, retrieving specific instances.</li>
+<li><em>add</em>: a boolean value defining if the query results should be added
+    to the records (<em>e.g.</em> corpus) or if the user wishes to search
+    interactively instead.</li>
+</ul>
+<p>The records generated when using <em>get(add=True)</em> are used by the
+<em>.save()</em> method to store all the retrieved data on disk by calling all
+relevant methods from the extension.</p>
+<p><strong>3.3. Defining additional methods</strong></p>
+<p>Gutenberg's Module class contains two extra methods. The suggested
+<em>welcome()</em> method automatically provides the user with the dataset
+statistics. This method is automatically called when a module is loaded,
+and can be used to provide the user with any (or no) information.</p>
+<p>The <em>corpus</em> method is not defined in parent AbstractExtension class,
+but it provides a simpler way to modify a corpus' settings and retrieve
+its representation, being a convenient intermediate method to search for
+book and author information.</p>
+<h2 id="feedback-and-issues">Feedback and issues</h2>
+<p>As DHTK grows, we aim to make it more efficient, simpler and contain
+more functionalities relevant to the Digital Humanities' community. Even
+if you do not have the computational expertise to program in Python, you
+can contribute as part of the DHTK community by letting us know how to
+improve DHTK to best fit your research needs.</p>
+<p>If you have any question, suggestion or feedback please
+write to Davide Picca \&lt;https://www.unil.ch/sli/davidepicca&gt;</p>
+<p><em>All suggestions and feedback are welcomed!</em></p>
+<h2 id="minor-changes">Minor changes</h2>
+<p>If you think DHTK is missing some simple functionality or could be made
+simpler and easier in some way, and you want to contribute by helping us
+implement those changes, thank you! However, before you do so, please
+write to <a href="https://www.unil.ch/sli/davidepicca">Davide Picca</a> to let us
+know!</p>
+<p>As a collective effort, we remain an open to everyone's contributions.
+Everyone can add or modify any function, class or method to improve DHTK
+usability of an existing DHTK module easily:</p>
+<ol>
+<li>Please visit our <a href="https://gitlab.com/dhtk/dhtk">GitLab page</a> to
+    find detailed information on how to contribute.</li>
+<li>Add an issue to the repository to let us know what you will be
+    working on.</li>
+<li>Clone the DHTK repository and create your own branch.</li>
+<li>Address the issue by modifying and testing the code locally.</li>
+<li>Submit your changes for review as a pull request.</li>
+</ol>
+<p>Your request will be discussed and reviewed and soon as possibly using
+the normal <a href="https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request">Github
+interface</a>.</p>
+<h3 id="rdf-dataset">RDF Dataset</h3>
+<p>If the new extension module uses a new pre-processed dataset, the
+finalised RDF file should be made available to download so it can be
+added to the local Fuseki endpoint. These files can be stored in any
+remote location, as long as freely accessible, though we would recommend
+using <a href="https://about.zenodo.org/">Zenodo</a>.</p>
+<p>For reproducibility and transparency, the full pipeline used to produce
+the provided RDF file (including clear instructions on how to use it)
+should also be made available under the <strong>"builder directory"</strong> of the
+module <em>(e.g. dhtk/extensions/gutenberg/builder/)</em></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>DHTK will be soon publicly available.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.471ce7a9.min.js"></script>
+      
+    
+  </body>
+</html>
